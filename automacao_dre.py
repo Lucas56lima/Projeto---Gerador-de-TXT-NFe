@@ -6,7 +6,7 @@ from tkinter import messagebox
 from tkinter import ttk
 import time
 
-lojas_df = pd.read_excel("C:/Users/Usuário/Desktop/lojas_dre.xlsx",sheet_name="Planilha2")
+lojas_df = pd.read_excel("C:/Users/Usuário/Desktop/lojas_dre.xlsx",sheet_name="Planilha1")
 # time.sleep(3)
 # print(pg.position())
 
@@ -39,60 +39,65 @@ def automatizar_dre():
             result_x = (x/100) * resolucao_x
             result_y = (y/100) * resolucao_y
         
-            pg.click(x=result_x, y=result_y)
-
-            time.sleep(2)         
-
+            pg.click(x=result_x, y=result_y)   
+            time.sleep(2)                      
             for i,lojas in enumerate(lojas_df['loja']):
                 filiais = str(lojas_df.loc[i,'loja'])
                 descricao = str(lojas_df.loc[i,'descricao'])
-                if lojas != " ":
+                if lojas != " ":          
+                                        
                     # clica para selecionar as lojas    
                     x = ((796 * 100) / resolucao_x_padrao)
                     y = ((328 * 100) / resolucao_y_padrao)
                     result_x = (x/100) * resolucao_x
                     result_y = (y/100) * resolucao_y
                     pg.click(x=result_x, y=result_y)
-                    time.sleep(2)
-
-                    # insere a configuração do layout
+                    time.sleep(2)           
                     x = ((632 * 100) / resolucao_x_padrao)
                     y = ((348 * 100) / resolucao_y_padrao)
                     result_x = (x/100) * resolucao_x
                     result_y = (y/100) * resolucao_y
                     pg.click(x=result_x, y=result_y)
                     time.sleep(1)
-                    pg.write("4")
+                    pg.write("5")
                     time.sleep(1)
                     pg.press("enter")
-
                     time.sleep(1)
-                    x = ((658 * 100) / resolucao_x_padrao)
-                    y = ((514 * 100) / resolucao_y_padrao)
-                    result_x = (x/100) * resolucao_x
-                    result_y = (y/100) * resolucao_y
-                    pg.click(result_x, result_y)
+                    pg.doubleClick(x=649, y=387)
                     time.sleep(1)
-                    x = ((672 * 100) / resolucao_x_padrao)
-                    y = ((301 * 100) / resolucao_y_padrao)
+                    pg.write("2024")
+                    time.sleep(1)
+                        
+                    x = ((661 * 100) / resolucao_x_padrao)
+                    y = ((503 * 100) / resolucao_y_padrao)
                     result_x = (x/100) * resolucao_x
                     result_y = (y/100) * resolucao_y
                     pg.click(x=result_x, y=result_y)
-                    time.sleep(2)
-
-                    # clica para filtrar as lojas
-                    x = ((632 * 100) / resolucao_x_padrao)
-                    y = ((337 * 100) / resolucao_y_padrao)
+                    time.sleep(1)                                                                  
+                    x = ((673 * 100) / resolucao_x_padrao)
+                    y = ((304 * 100) / resolucao_y_padrao)
                     result_x = (x/100) * resolucao_x
                     result_y = (y/100) * resolucao_y
-                    pg.doubleClick(x=result_x, y=result_y)
-                    time.sleep(1)            
-                    x = ((803 * 100) / resolucao_x_padrao)
-                    y = ((404 * 100) / resolucao_y_padrao)
+                    pg.click(x=result_x, y=result_y)
+                    time.sleep(1)                   
+
+                    # clica para filtrar as lojas
+                    x = ((633 * 100) / resolucao_x_padrao)
+                    y = ((341 * 100) / resolucao_y_padrao)
+                    result_x = (x/100) * resolucao_x
+                    result_y = (y/100) * resolucao_y
+                    pg.click(x=result_x, y=result_y)
+                    time.sleep(1)
+                    pg.click(x=774, y=404)
+                    time.sleep(2)
+                    pg.click(x=685, y=419)
+                    time.sleep(1)              
+                    x = ((800 * 100) / resolucao_x_padrao)
+                    y = ((403 * 100) / resolucao_y_padrao)
                     result_x = (x/100) * resolucao_x
                     result_y = (y/100) * resolucao_y  
-                    pg.doubleClick(x=result_x, y=result_y)
-                    time.sleep(1)
+                    pg.click(x=result_x, y=result_y)
+                    time.sleep(2)                                  
                     # insere os valores das filiais   
                     if len(str(filiais)) < 2:               
                         pg.write('0' + filiais)
@@ -100,19 +105,17 @@ def automatizar_dre():
                         pg.write(filiais)
                         time.sleep(1)
                         
-                    x = ((832 * 100) / resolucao_x_padrao)
-                    y = ((523 * 100) / resolucao_y_padrao)
+                    x = ((836 * 100) / resolucao_x_padrao)
+                    y = ((482 * 100) / resolucao_y_padrao)
                     result_x = (x/100) * resolucao_x
                     result_y = (y/100) * resolucao_y
-                    pg.click(x=result_x, y=result_y)
-                        
+                    pg.click(x=result_x, y=result_y)                        
                     time.sleep(1)
                     x = ((616 * 100) / resolucao_x_padrao)
                     y = ((323 * 100) / resolucao_y_padrao)
                     result_x = (x/100) * resolucao_x
                     result_y = (y/100) * resolucao_y
-                    pg.click(x=result_x, y=result_y)
-                    time.sleep(1)                    
+                    pg.click(x=result_x, y=result_y)                                       
 
                     time.sleep(1)
                     # clica para consultar
@@ -127,7 +130,7 @@ def automatizar_dre():
                     result_x = (x/100) * resolucao_x
                     result_y = (y/100) * resolucao_y        
                     pg.click(x=result_x, y=result_y)
-                    time.sleep(15)
+                    time.sleep(25)
                     x = ((371 * 100) / resolucao_x_padrao)
                     y = ((64 * 100) / resolucao_y_padrao)
                     result_x = (x/100) * resolucao_x
@@ -135,7 +138,7 @@ def automatizar_dre():
                     pg.click(x=result_x,y=result_y)
                     time.sleep(1)
                     x = ((400 * 100) / resolucao_x_padrao)
-                    y = ((105 * 100) / resolucao_y_padrao)
+                    y = ((127 * 100) / resolucao_y_padrao)
                     result_x = (x/100) * resolucao_x
                     result_y = (y/100) * resolucao_y
                     pg.click(x=result_x,y=result_y)
@@ -155,16 +158,16 @@ def automatizar_dre():
                     pg.click(x=result_x, y=result_y)
                     time.sleep(1)
 
-                    x = ((528 * 100) / resolucao_x_padrao)
-                    y = ((465 * 100) / resolucao_y_padrao)
+                    x = ((424 * 100) / resolucao_x_padrao)
+                    y = ((427 * 100) / resolucao_y_padrao)
                     result_x = (x/100) * resolucao_x
                     result_y = (y/100) * resolucao_y
 
                     # seleciona o local    
                     pg.doubleClick(x=result_x, y=result_y)          
                     time.sleep(1)
-                    x = ((1104 * 100) / resolucao_x_padrao)
-                    y = ((514 * 100) / resolucao_y_padrao)
+                    x = ((990 * 100) / resolucao_x_padrao)
+                    y = ((468 * 100) / resolucao_y_padrao)
                     result_x = (x/100) * resolucao_x
                     result_y = (y/100) * resolucao_y
 
@@ -174,28 +177,28 @@ def automatizar_dre():
                     time.sleep(1)
                     pg.click(x=result_x, y=result_y)           
                     time.sleep(1)
-                    x = ((665 * 100) / resolucao_x_padrao)
-                    y = ((486 * 100) / resolucao_y_padrao)
+                    x = ((614 * 100) / resolucao_x_padrao)
+                    y = ((423 * 100) / resolucao_y_padrao)
                     result_x = (x/100) * resolucao_x
                     result_y = (y/100) * resolucao_y
                     pg.doubleClick(x=result_x, y=result_y)
                     time.sleep(1)
-                    x = ((630 * 100) / resolucao_x_padrao)
-                    y = ((355 * 100) / resolucao_y_padrao)
+                    x = ((526 * 100) / resolucao_x_padrao)
+                    y = ((329 * 100) / resolucao_y_padrao)
                     result_x = (x/100) * resolucao_x
                     result_y = (y/100) * resolucao_y    
                     #seleciona a pasta padrão
                     pg.doubleClick(x=result_x, y=result_y)
                     time.sleep(1)
-                    x = ((646 * 100) / resolucao_x_padrao)
-                    y = ((244 * 100) / resolucao_y_padrao)
+                    x = ((582 * 100) / resolucao_x_padrao)
+                    y = ((190 * 100) / resolucao_y_padrao)
                     result_x = (x/100) * resolucao_x
                     result_y = (y/100) * resolucao_y
                     pg.doubleClick(x=result_x, y=result_y)
 
                     time.sleep(1)
-                    x = ((689 * 100) / resolucao_x_padrao)
-                    y = ((540 * 100) / resolucao_y_padrao)
+                    x = ((568 * 100) / resolucao_x_padrao)
+                    y = ((497 * 100) / resolucao_y_padrao)
                     result_x = (x/100) * resolucao_x
                     result_y = (y/100) * resolucao_y
                     # insere o nome da planilha
@@ -203,8 +206,8 @@ def automatizar_dre():
                     time.sleep(1)
                     pg.write(descricao)
                     time.sleep(1)
-                    x = ((1073 * 100) / resolucao_x_padrao)
-                    y = ((542 * 100) / resolucao_y_padrao)
+                    x = ((956 * 100) / resolucao_x_padrao)
+                    y = ((497 * 100) / resolucao_y_padrao)
                     result_x = (x/100) * resolucao_x
                     result_y = (y/100) * resolucao_y
                     # confirma o salvamento
@@ -214,12 +217,13 @@ def automatizar_dre():
 
                     # retorna para o filtro
                     time.sleep(1)
-                    x = ((416 * 100) / resolucao_x_padrao)
-                    y = ((66 * 100) / resolucao_y_padrao)
+                    x = ((419 * 100) / resolucao_x_padrao)
+                    y = ((63 * 100) / resolucao_y_padrao)
                     result_x = (x/100) * resolucao_x
                     result_y = (y/100) * resolucao_y    
                     pg.click(x=result_x, y=result_y)
-
+                    time.sleep(1)                                         
+                           
                     for i in range(lojas_df["loja"].count()):
                         bar['value'] = i + 1
                                 
